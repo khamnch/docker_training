@@ -32,7 +32,7 @@ services:
       - my_backend
   api:
     container_name: api
-    image: phonepadithpp/api-express:0.6
+    image: khamnch/api-express:0.6
     build:
       context: api
       dockerfile: ./Dockerfile
