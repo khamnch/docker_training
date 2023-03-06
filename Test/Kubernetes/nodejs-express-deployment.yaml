@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-nodejs-express
+  name: test-nodejs-express
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: test-nodejs-express
+  template:
+    metadata:
+      labels:
+        app: test-nodejs-express
+    spec:
+      containers:
+      - image: khamnch/nodejs:0.1
+        name: nodejs
+        resources: {}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 3
+      maxUnavailable: 5
+
